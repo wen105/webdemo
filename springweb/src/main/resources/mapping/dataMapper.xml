@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shuyun.dao.DataDao">
+    <select id="queryData" resultMap="dataResultMap">
+        SELECT *
+        FROM data_tab
+        WHERE user_Id = #{userId}
+    </select>
+    <insert id="saveUserData" parameterMap="dataParameterMap" useGeneratedKeys="true"
+            keyProperty="0">
+        INSERT INTO user.data_tab (data_Id, user_Id, data_Title, data_Content, data_Name) VALUES
+            (#{0}, #{1}, #{2}, #{3}, #{4});
+    </insert>
+    <!--通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
+    <resultMap type="com.shuyun.entity.UserData" id="dataResultMap">
+    <!-- 用id属性来映射主键字段 -->
+    <!--<id property="dataId" column="data_id"/>-->
+    <!-- 用result属性来映射非主键字段 -->
+    <result property="userId" column="user_id"/>
+    <result property="dataTitle" column="data_title"/>
+    <result property="dataContent" column="data_content"/>
+    <result property="dataName" column="data_name"/>
+    </resultMap>
+    <parameterMap type="com.shuyun.entity.UserData" id="dataParameterMap">
+        <!--&lt;!&ndash; 用parameter属性来映射非主键字段 &ndash;&gt;-->
+        <parameter property="dataId" javaType="int"/>
+        <parameter property="userId" javaType="int"/>
+        <parameter property="dataTitle" javaType="String"/>
+        <parameter property="dataContent" javaType="String"/>
+        <parameter property="dataName" javaType="String"/>
+    </parameterMap>
+</mapper>
