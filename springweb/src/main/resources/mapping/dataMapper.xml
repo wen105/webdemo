@@ -14,7 +14,7 @@
     <!--通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
     <resultMap type="com.shuyun.entity.UserData" id="dataResultMap">
     <!-- 用id属性来映射主键字段 -->
-    <!--<id property="dataId" column="data_id"/>-->
+    <id property="dataId" column="data_id"/>
     <!-- 用result属性来映射非主键字段 -->
     <result property="userId" column="user_id"/>
     <result property="dataTitle" column="data_title"/>
