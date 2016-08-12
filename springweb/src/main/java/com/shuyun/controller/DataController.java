@@ -22,14 +22,16 @@ import java.util.List;
 public class DataController {
     @Resource
     private DataService dataService;
+
     @RequestMapping("/showData")
     public ModelAndView showData(@ModelAttribute("user") User user) {
         List<UserData> userDataList = dataService.queryData(user.getId());
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("userDataList",userDataList);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("userDataList", userDataList);
         modelAndView.setViewName("showUserData");
         return modelAndView;
     }
+
     @RequestMapping("/saveUserData")
     public String saveUserData(UserData userData) throws IOException {
         dataService.saveUserData(userData);

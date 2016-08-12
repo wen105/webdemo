@@ -6,7 +6,7 @@
     <title>userLogin</title>
   </head>
   <body>
-  ${requestScope.msg}<br/>
+  ${sessionScope.msg}<br/>
   <form action="userLogin" method="post">
       用户名: <input type="text" name="name"/><br/>
       密&nbsp;码: <input type="password" name="password"/><br/>
