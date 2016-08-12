@@ -1,4 +1,4 @@
-<%@ page import="com.shuyun.entity.User" %>
+<%@ page import="com.shuyun.domain.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: shuyun

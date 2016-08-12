@@ -1,6 +1,6 @@
 package com.shuyun.controller;
 
-import com.shuyun.entity.Article;
+import com.shuyun.domain.Article;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
 package com.shuyun.filter;
 
-import com.shuyun.entity.User;
+import com.shuyun.domain.User;
 import com.shuyun.service.UserService;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

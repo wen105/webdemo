@@ -1,6 +1,6 @@
-package com.shuyun.dao;
+package com.shuyun.mapper;
 
-import com.shuyun.entity.UserData;
+import com.shuyun.domain.UserData;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * 数据接口类
  */
 @Repository
-public interface DataDao {
+public interface DataMapper {
     public List<UserData> queryData(int userId);
     public int saveUserData(int dataId,int userId,String dataTitle,String dataContent,String dataName);
 }

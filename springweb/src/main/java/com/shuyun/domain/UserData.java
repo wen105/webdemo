@@ -1,4 +1,4 @@
-package com.shuyun.entity;
+package com.shuyun.domain;
 
 /**
  * Created by shuyun on 2016/8/4.

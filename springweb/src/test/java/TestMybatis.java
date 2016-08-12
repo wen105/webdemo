@@ -1,4 +1,4 @@
-import com.shuyun.entity.User;
+import com.shuyun.domain.User;
 import com.shuyun.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * Mybatis Test
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
 public class TestMybatis {
     private final Logger logger = LoggerFactory.getLogger(TestMybatis.class);
 
@@ -23,7 +23,7 @@ public class TestMybatis {
 
     @Test
     public void test1() {
-        User user = userService.findUserByName("wen");
+        User user = userService.handleLogin("wen");
         logger.info("-->:{}", user);
     }
 

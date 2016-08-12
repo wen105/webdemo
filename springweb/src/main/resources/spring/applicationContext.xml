@@ -6,7 +6,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.shuyun">
-        <context:exclude-filter type="regex" expression=".controller.*"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <!-- 引入配置文件 -->
@@ -30,17 +30,22 @@
         <property name="minIdle" value="${minIdle}"/>
         <!-- 获取连接最大等待时间 -->
         <property name="maxWait" value="${maxWait}"/>
+        <!-- 检测属性 -->
+        <property name="validationQuery" value="select 1"/>
+        <!-- 当获取连接 -->
+        <property name="testOnBorrow" value="true"/>
+        <!-- 快达到过期时间时检测 -->
+        <property name="testWhileIdle" value="true"/>
     </bean>
 
-    <!-- spring和MyBatis结合 -->
+    <!-- mybatis-config.xml -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <!-- 自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath:mapping/*.xml"/>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
     </bean>
-    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <!-- Mapper接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.shuyun.dao"/>
+        <property name="basePackage" value="com.shuyun.**.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
