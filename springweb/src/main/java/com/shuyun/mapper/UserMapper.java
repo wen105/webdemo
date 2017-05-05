@@ -11,7 +11,8 @@ import java.util.List;
  */
 @Repository
 public interface UserMapper {
-    public User findUserByName(String name);
-    public User handleLogin(String name);
-    public List<User> listAll();
+
+    User handleLogin(String name);
+
+    List<User> listAll();
 }

@@ -1,6 +1,7 @@
 package com.shuyun.mapper;
 
 import com.shuyun.domain.UserData;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  */
 @Repository
 public interface DataMapper {
-    public List<UserData> queryData(int userId);
-    public int saveUserData(int dataId,int userId,String dataTitle,String dataContent,String dataName);
+    List<UserData> queryData(int userId);
+
+    int saveUserData(@Param("dataId") int dataId, @Param("userId") int userId, @Param("dataTitle") String dataTitle, @Param("dataContent") String dataContent, @Param("dataName") String dataName);
 }
